@@ -1,0 +1,40 @@
+
+
+
+.d-flex{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    >*{
+        flex:1 1 auto;  
+    }
+}
+
+.absolute{
+    position: absolute;
+    &.stick-top{
+        top:0;
+        left:0;
+        right:0;
+    }
+}
+
+
+
+
+$sizes:0.25rem,0.5rem,1rem,1.5rem,2rem;
+
+@mixin sizingUtil($prefix, $property) {
+  $result: 1;
+  @for $i from 1 through length($sizes) {
+    
+    .#{$prefix}{
+        #{$property}:list.nth($list: $sizes, $n: $i )
+    }
+    
+  }
+}
+
+
+// @include sizingUtil (p,padding)

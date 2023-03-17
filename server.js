@@ -22,11 +22,10 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
+app.use("/public",express.static('public'));
 
 const routes  = require("./routes/top.routes");
-
 app.use("/",routes);
-
 
 
 

@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "watch": "nodemon server.js"
+    "watch": "nodemon server.js",
+    "sass":"sass --watch ./lib/style.scss public/styles/style.css"
   },
   "author": "Eric Ferraiuolo <eferraiuolo@gmail.com>",
   "license": "BSD",
@@ -18,7 +19,8 @@
   "devDependencies": {
     "connect-livereload": "^0.6.1",
     "livereload": "^0.9.3",
-    "nodemon": "^2.0.21"
+    "nodemon": "^2.0.21",
+    "sass": "^1.59.3"
   },
   "nodemonConfig": {
     "ext": "handlebars,js"
