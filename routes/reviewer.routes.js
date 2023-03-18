@@ -7,6 +7,7 @@ router.use('/api', apiRoutes);
 
 //  /...
 
+const viewfp = "pages/consumer/";
 
 // Add a binding to handle '/'
 router.get('/', (req, res) => {
@@ -14,11 +15,11 @@ router.get('/', (req, res) => {
 })
 
 router.get('/products', (req, res) => {
-    res.render('home', { title: "hello" });
+    res.render(viewfp+'productlist', { title: "products" });
 })
 
 router.get('/reviews', (req, res) => {
-    res.render('home', { title: "hello" });
+    res.render(viewfp+'reviewlist', { title: "reviews" });
 })
 
 

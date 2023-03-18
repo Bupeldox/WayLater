@@ -18,14 +18,15 @@ app.use(connectLiveReload());
 const hbs = create({
     helpers: helpers
 });
+
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
 app.use("/public",express.static('public'));
 
-const routes  = require("./routes/top.routes");
-app.use("/",routes);
+app.use("/review",require("./routes/reviewer.routes"));
+app.use("/",require("./routes/consumer.routes"));
 
 
 
