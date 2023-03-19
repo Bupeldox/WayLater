@@ -1,6 +1,7 @@
 const express = require('express');
 const { create } = require( 'express-handlebars');
 const { helpers } = require('./lib/helpers');
+var bodyParser = require('body-parser')
 
 var livereload = require("livereload");
 var connectLiveReload = require("connect-livereload");
@@ -14,10 +15,19 @@ liveReloadServer.server.once("connection", () => {
 
 const app = express();
 app.use(connectLiveReload());
+app.use(bodyParser.json() );        // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
+
+
 
 const hbs = create({
     helpers: helpers
 });
+
+
+
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');

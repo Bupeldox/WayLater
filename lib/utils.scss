@@ -29,12 +29,17 @@ $sizes:0.25rem,0.5rem,1rem,1.5rem,2rem;
   $result: 1;
   @for $i from 1 through length($sizes) {
     
-    .#{$prefix}{
-        #{$property}:list.nth($list: $sizes, $n: $i )
+    .#{$prefix}-#{$i}{
+        #{$property}: nth($sizes,$i)
     }
     
   }
 }
 
 
-// @include sizingUtil (p,padding)
+@include sizingUtil (p,padding);
+
+@include sizingUtil (pl,padding-left);
+@include sizingUtil (pr,padding-right);
+
+@include sizingUtil (pb,padding-bottom);

@@ -1,0 +1,42 @@
+<div class="wrapper">
+    <section class="hero" style="height:30vh">
+
+        <div class="bgImage svg container">
+            <svg class="zdog-svg"></svg>
+        </div>
+        <div class="bgImage fog"></div>
+        <div class="bgImage heroContent container">
+            <h1>Setup Review</h1>
+        </div>
+    </section>
+    <div class="container">
+        <section>
+            <form action="./setupreview" method="post">
+                <div class="pb-3">
+                    <label for="manufacture">Brand</label>
+                    <input name="manufacture" required class="btn-juicy" type="text">
+                </div>
+                <div class="pb-3">
+                    <label for="product">Product</label>
+                    <input required class="btn-juicy" type="text" name="product">
+                </div>
+                <div class="pb-3">
+                    <label for="email">Email</label>
+                    <input required class="btn-juicy" type="email" name="email">
+                </div>
+                <button type="submit" class="button btn-juicy">Send Email Confirmation</button>
+                <br><br>
+                <small>We don't do accounts so confirming ur email is basically logging in.</small>
+            </form>
+        </section>
+    </div>
+</div>
+
+
+{{#section 'script'}}
+
+    {{!-- <script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script>
+    <script src="/public/scripts/vec2.js"></script>
+    <script src="/public/scripts/orbitGraphic.js"></script> --}}
+
+{{/section}}

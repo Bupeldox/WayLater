@@ -1,3 +1,4 @@
+@import "./Chillax_Complete/Fonts/WEB/css/chillax.css";
 figure {
   margin-inline-start: 0;
   margin-inline-end: 0;
@@ -27,6 +28,29 @@ body {
   line-height: 1.5;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li:before {
+  content: "";
+  position: absolute;
+}
+
+.flex-stack > * {
+  flex: 0 0 auto !important;
+}
+
+.darkbg a {
+  color: #fff;
+}
+
+a {
+  color: #43188a;
+}
+
 .d-flex {
   display: flex;
   flex-flow: row nowrap;
@@ -46,6 +70,86 @@ body {
   right: 0;
 }
 
+.p-1 {
+  padding: 0.25rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-3 {
+  padding: 1rem;
+}
+
+.p-4 {
+  padding: 1.5rem;
+}
+
+.p-5 {
+  padding: 2rem;
+}
+
+.pl-1 {
+  padding-left: 0.25rem;
+}
+
+.pl-2 {
+  padding-left: 0.5rem;
+}
+
+.pl-3 {
+  padding-left: 1rem;
+}
+
+.pl-4 {
+  padding-left: 1.5rem;
+}
+
+.pl-5 {
+  padding-left: 2rem;
+}
+
+.pr-1 {
+  padding-right: 0.25rem;
+}
+
+.pr-2 {
+  padding-right: 0.5rem;
+}
+
+.pr-3 {
+  padding-right: 1rem;
+}
+
+.pr-4 {
+  padding-right: 1.5rem;
+}
+
+.pr-5 {
+  padding-right: 2rem;
+}
+
+.pb-1 {
+  padding-bottom: 0.25rem;
+}
+
+.pb-2 {
+  padding-bottom: 0.5rem;
+}
+
+.pb-3 {
+  padding-bottom: 1rem;
+}
+
+.pb-4 {
+  padding-bottom: 1.5rem;
+}
+
+.pb-5 {
+  padding-bottom: 2rem;
+}
+
 * {
   box-sizing: border-box;
   --test:1;
@@ -55,7 +159,10 @@ body,
 html {
   margin: 0;
   font-size: min(1vw + 12px, 16px);
-  font-family: ui-sans-serif, system-ui;
+}
+
+html, body, button, input {
+  font-family: "Chillax-Variable", ui-sans-serif, system-ui;
 }
 
 .wrapper {
@@ -69,6 +176,7 @@ html {
   flex: 0 1 760px;
   padding: 3rem;
   max-width: 760px;
+  width: 100%;
 }
 
 input {
@@ -88,7 +196,7 @@ input {
   background-color: #fff;
   padding: calc(1em - 2px);
   border-radius: 1em;
-  box-shadow: 0 0.25em 2em -0.25em #919191;
+  box-shadow: 0 0.25em 2em -0.25em #8d59e2;
   border: 2px solid #ddd;
 }
 
@@ -99,7 +207,7 @@ input {
   color: #fff;
   height: 80vh;
   position: relative;
-  background: #fff;
+  background: linear-gradient(45deg, hsl(230, 80%, 30%) 0%, hsl(285, 80%, 30%) 100%);
   overflow: hidden;
 }
 .hero .buttons > * {
@@ -156,24 +264,23 @@ input {
 }
 
 .card {
-  box-shadow: 0px 0px 5px 1px #444;
+  box-shadow: 0px 0px 5px 1px #43188a;
   padding: 1.5rem;
   padding-bottom: 0rem !important;
   border-radius: 1rem;
 }
 .card h3 {
-  text-decoration-color: #444;
+  text-decoration-color: #43188a;
   text-decoration: underline;
 }
 
 .miniReview {
   display: block;
-  flex: 0 0 min-content;
 }
 .miniReview .productImage {
   height: 200px;
   width: 200px;
-  background: #fff;
+  background: linear-gradient(45deg, hsl(230, 80%, 30%) 0%, hsl(285, 80%, 30%) 100%);
   border-radius: 0.5rem;
   margin-top: 0.5rem;
 }
@@ -204,12 +311,12 @@ input {
 
 .btn-juicy:not(input):hover:active {
   transition: 0.1s;
-  box-shadow: 1px 2px #2b2b2b;
+  box-shadow: 1px 2px #2e105f;
   transform: translate(5px, 10px);
 }
 
 .btn-juicy:hover {
-  box-shadow: 6px 12px #2b2b2b;
+  box-shadow: 6px 12px #2e105f;
   transform: translate(-1px, -2px);
 }
 
@@ -219,12 +326,12 @@ input {
 }
 
 .btn-juicy:not(input):hover:active {
-  box-shadow: 1px 2px 0px 0px #444, 10%;
+  box-shadow: 1px 2px 0px 0px #43188a, 10%;
   transform: translate(1px, 2px);
 }
 
 .btn-juicy:hover, .btn-juicy:focus {
-  box-shadow: 3px 6px 1px 0px #2b2b2b;
+  box-shadow: 3px 6px 1px 0px #2e105f;
   transform: translate(-1px, -2px);
 }
 

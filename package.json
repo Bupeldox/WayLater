@@ -8,13 +8,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "watch": "nodemon server.js",
-    "sass":"sass --watch ./lib/style.scss public/styles/style.css"
+    "sass": "sass --watch ./lib/style.scss public/styles/style.css"
   },
   "author": "Eric Ferraiuolo <eferraiuolo@gmail.com>",
   "license": "BSD",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "express": "^4.7.2",
-    "express-handlebars": "^7.0.1"
+    "express-handlebars": "^7.0.1",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "connect-livereload": "^0.6.1",

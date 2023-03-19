@@ -1,17 +1,8 @@
 
+@import "./variables.scss";
 @import "./baseline.scss";
 @import "./utils.scss";
-
-$themeGradient: linear-gradient(
-    45deg,
-    hsl(230deg 80% 30%) 0%,
-    hsl(285deg 80% 30%) 100%
-);
-
-$themePrimary:#43188a;
-
-$themeGradient:#fff;
-$themePrimary:#444;
+@import "./Chillax_Complete/Fonts/WEB/css/chillax.css";
 
 
 * {
@@ -21,9 +12,13 @@ $themePrimary:#444;
 body,
 html {
 	margin: 0;
-	font-size: min(calc(1vw + 12px), 16px);
-	font-family: ui-sans-serif, system-ui;
+	font-size: min(calc(1vw + 12px), 16px);	
 }
+
+html,body,button,input{
+	font-family: 'Chillax-Variable', ui-sans-serif, system-ui;
+}
+
 .wrapper {
 	display: flex;
 	flex-flow: column nowrap;
@@ -35,6 +30,7 @@ html {
 	flex: 0 1 760px;
 	padding: 3rem;
 	max-width: 760px;
+	width: 100%;
 }
 
 input {
@@ -140,7 +136,7 @@ input {
 
 .miniReview {
 	display: block;
-	flex: 0 0 min-content;
+	//flex: 0 0 min-content;
 	.productImage {
 		height: 200px;
 		width: 200px;

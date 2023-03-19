@@ -1,0 +1,38 @@
+
+
+{{!-- 
+
+    {
+        productName:"hello",
+        review:"world",
+        rating:3
+    };
+
+ --}}
+{{!-- 
+
+ <figure class="miniReview">
+    <h3>{{ productName }}</h3>
+    <small>
+        Time Since purchase: > ~1 year
+    </small>
+    <p>Rating: {{ rating }}</p>
+    <p class="review">
+        {{ review }}
+    </p>
+</figure> --}}
+
+
+<div class="pb-3">
+    
+    <h3>{{ productName }}</h3>
+    <div>
+        <small>
+            Rating: {{ rating }}, 
+            Time Since purchase: > ~1 year, 
+        </small>
+    </div>
+    <div>
+        {{ review }}
+    </div>
+</div>
