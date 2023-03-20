@@ -2,11 +2,10 @@
 var express = require('express'),
     router = express.Router();
 
-const { sendEmail } = require('../lib/confirmationEmailHelper');
+const { sendConfirmationEmail, sendReviewReadyEmail } = require('../lib/confirmationEmailHelper');
 var datastore = require("../lib/datastore");
-const { vars } = require('../lib/environmentVars');
 
-const  { v4: uuidv4 }  = require("uuid");
+const  { v4: uuidv4, validate: validateuuid }  = require("uuid");
 
 //  /...
 
@@ -24,21 +23,26 @@ router.post('/setupreview', (req, res) => {
     //send email
     //redirect to wesentyouanemail
     var fd = req.body;
-    var reviewItem ={
+    var reviewItem = {
         email:fd.email,
         brand:fd.brand,
         productName:fd.product,
         dateRequested: Date.now(),
         id:uuidv4()
     };
+
     datastore.store("reviews",reviewItem);
 
-    sendEmail(res,reviewItem);
+    sendEmail(res,reviewItem).then((email)=>{
 
+        res.send(email);
+    });
+    
     //kjkres.redirect("./wesentyouanemail");
 });
 
-router.get('/testemail', (req, res) => {
+
+router.get('/testConfirmEmail', (req, res) => {
 
     var reviewItem ={
         email:"email@email.email",
@@ -48,19 +52,29 @@ router.get('/testemail', (req, res) => {
         id:uuidv4()
     };
 
-    var viewmodel = {
-        urls:{
+    datastore.store("reviews",reviewItem);
 
-            confirm:vars.baseUrl+"/review/confirm?id="+reviewItem.id+"&product="+reviewItem.brand+"&productName="+reviewItem.productName,
-            homepage:vars.baseUrl,
-
-        },
-        layout:false,
-    };
-
-    res.render('emails/confirmemail', viewmodel);
+    sendConfirmationEmail(reviewItem).then((email)=>{
+        res.send(email);
+    });
 });
 
+router.get('/testReviewEmail', (req, res) => {
+
+    var reviewItem ={
+        email:"email@email.email",
+        brand:"adidas",
+        productName:"airforce 1",
+        dateRequested: Date.now(),
+        id:uuidv4()
+    };
+
+    datastore.store("reviews",reviewItem);
+
+    sendReviewReadyEmail(reviewItem).then((email)=>{
+        res.send(email);
+    });
+});
 
 router.get('/wesentyouanemail', (req, res) => {
     res.render(viewfp+'somethingconfirmed', { 
@@ -86,6 +100,51 @@ router.get('/cancel', (req, res) => {
 });
 
 
+router.get("/write/:id",(req,res)=>{
+
+    var reviewId = req.params.id;
+
+    if(!validateuuid(reviewId)){
+        res.redirect("/");
+    }
+
+    var reviewItem = datastore.getReviewableById(reviewId);
+
+    var viewmodel = {
+        productName: reviewItem.productName,
+        brand: reviewItem.brand,
+        reviewContent: reviewItem.reviewContent,
+        id: reviewId
+    };
+
+    res.render(viewfp+'writereview', viewmodel);
+});
+
+router.post("/write",(req,res)=>{
+
+    var reviewId = req.body.id;
+    
+    if(!validateuuid(reviewId)){
+        res.redirect("/");
+    }
+    
+    var fd = req.body;
+    var formData = {
+        reviewContent: fd.reviewContent,
+        brand:fd.brand,
+        productName:fd.product,
+    };
+    
+    var reviewItem = datastore.getReviewableById(reviewId);
+
+    reviewItem.productName = formData.productName;
+    reviewItem.brand = formData.brand;
+    reviewItem.reviewContent = formData.reviewContent;
+
+    datastore.store("review",reviewItem);
+
+    res.render(viewfp+'writereview', viewmodel);
+});
 
 
 module.exports = router;

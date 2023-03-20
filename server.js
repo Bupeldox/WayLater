@@ -3,15 +3,21 @@ const { create } = require( 'express-handlebars');
 const { helpers } = require('./lib/helpers');
 var bodyParser = require('body-parser')
 
+
+
+
 var livereload = require("livereload");
 var connectLiveReload = require("connect-livereload");
-
-const liveReloadServer = livereload.createServer();
+const { vars } = require('./lib/environmentVars');
+const liveReloadServer = livereload.createServer({port:13853});
 liveReloadServer.server.once("connection", () => {
   setTimeout(() => {
     liveReloadServer.refresh("/");
   }, 100);
 });
+
+
+
 
 const app = express();
 app.use(connectLiveReload());
@@ -25,24 +31,19 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 const hbs = create({
     helpers: helpers
 });
-
-
-
-
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
-app.use("/public",express.static('public'));
 
+
+app.use("/public",express.static('public'));
 app.use("/review",require("./routes/reviewer.routes"));
 app.use("/",require("./routes/consumer.routes"));
 
 
 
-
-
-app.listen(3000,()=>{
-    console.log("http://localhost:3000/")
+app.listen(vars.port,()=>{
+    console.log("http://localhost:"+vars.port+"/")
 });
 

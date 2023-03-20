@@ -11,22 +11,26 @@
     </section>
     <div class="container">
         <section>
-            <form action="./setupreview" method="post">
+            <form action="./write" method="post">
+                <input type="hidden" name="id" value="{{ id }}">
                 <div class="pb-3">
                     <label for="manufacture">Brand</label>
-                    <input name="manufacture" required class="btn-juicy" type="text">
+                    <input name="manufacture" required class="btn-juicy" type="text" value="{{ brand }}">
                 </div>
                 <div class="pb-3">
                     <label for="product">Product</label>
-                    <input required class="btn-juicy" type="text" name="product">
+                    <input required class="btn-juicy" type="text" name="product" value="{{ productName }}">
                 </div>
                 <div class="pb-3">
-                    <label for="email">Email</label>
-                    <input class="btn-juicy" type="email" name="email">
+                    <textarea placeholder="Lets write ur review" name="reviewContent" id="" cols="30" rows="10">
+                        {{ reviewContent }}
+                    </textarea>
                 </div>
-                <button type="submit" class="button btn-juicy">Send Email Confirmation</button>
+                <button type="submit" class="button btn-juicy">Save Review</button>
                 <br><br>
-                <small>We don't do accounts so confirming ur email is basically logging in.</small>
+                <p>
+                    If you ever want to edit this, click the link in the email we sent you.
+                </p>
             </form>
         </section>
     </div>
