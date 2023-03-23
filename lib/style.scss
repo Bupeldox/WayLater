@@ -15,7 +15,7 @@ html {
 	font-size: min(calc(1vw + 12px), 16px);	
 }
 
-html,body,button,input{
+html,body,button,input,textarea{
 	font-family: 'Chillax-Variable', ui-sans-serif, system-ui;
 }
 
@@ -41,7 +41,7 @@ input {
 	background-color: #eee;
 }
 .button,
-input {
+input, textarea {
 	display: inline-block;
 	overflow: visible;
 	outline: none;

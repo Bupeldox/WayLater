@@ -2,12 +2,13 @@
 var express = require('express'),
     router = express.Router();
 
-const { sendConfirmationEmail, sendReviewReadyEmail } = require('../lib/confirmationEmailHelper');
-var datastore = require("../lib/datastore");
+const { sendConfirmationEmail } = require('../lib/confirmationEmailHelper');
 
 const  { v4: uuidv4, validate: validateuuid }  = require("uuid");
+const dataHandler = require('../lib/dataHandler');
 
 //  /...
+
 
 const viewfp = "pages/reviewer/";
 
@@ -23,57 +24,15 @@ router.post('/setupreview', (req, res) => {
     //send email
     //redirect to wesentyouanemail
     var fd = req.body;
-    var reviewItem = {
-        email:fd.email,
-        brand:fd.brand,
-        productName:fd.product,
-        dateRequested: Date.now(),
-        id:uuidv4()
-    };
+    
+    var reviewItem = dataHandler.createReviewRequest(fd.email,fd.brand,fd.productName);
 
-    datastore.store("reviews",reviewItem);
-
-    sendEmail(res,reviewItem).then((email)=>{
+    sendConfirmationEmail(res,reviewItem).then((email)=>{
 
         res.send(email);
     });
     
     //kjkres.redirect("./wesentyouanemail");
-});
-
-
-router.get('/testConfirmEmail', (req, res) => {
-
-    var reviewItem ={
-        email:"email@email.email",
-        brand:"adidas",
-        productName:"airforce 1",
-        dateRequested: Date.now(),
-        id:uuidv4()
-    };
-
-    datastore.store("reviews",reviewItem);
-
-    sendConfirmationEmail(reviewItem).then((email)=>{
-        res.send(email);
-    });
-});
-
-router.get('/testReviewEmail', (req, res) => {
-
-    var reviewItem ={
-        email:"email@email.email",
-        brand:"adidas",
-        productName:"airforce 1",
-        dateRequested: Date.now(),
-        id:uuidv4()
-    };
-
-    datastore.store("reviews",reviewItem);
-
-    sendReviewReadyEmail(reviewItem).then((email)=>{
-        res.send(email);
-    });
 });
 
 router.get('/wesentyouanemail', (req, res) => {
@@ -108,7 +67,7 @@ router.get("/write/:id",(req,res)=>{
         res.redirect("/");
     }
 
-    var reviewItem = datastore.getReviewableById(reviewId);
+    var reviewItem = dataHandler.getReviewableById(reviewId);
 
     var viewmodel = {
         productName: reviewItem.productName,
@@ -127,23 +86,17 @@ router.post("/write",(req,res)=>{
     if(!validateuuid(reviewId)){
         res.redirect("/");
     }
+        
+    var formData = req.body;
+
+
+    dataHandler.updateReview(formData.reviewContent,formData.product,formData.manufacture,reviewId);
     
-    var fd = req.body;
-    var formData = {
-        reviewContent: fd.reviewContent,
-        brand:fd.brand,
-        productName:fd.product,
-    };
-    
-    var reviewItem = datastore.getReviewableById(reviewId);
-
-    reviewItem.productName = formData.productName;
-    reviewItem.brand = formData.brand;
-    reviewItem.reviewContent = formData.reviewContent;
-
-    datastore.store("review",reviewItem);
-
-    res.render(viewfp+'writereview', viewmodel);
+    res.render(viewfp+'somethingconfirmed', 
+    { 
+        title: "Review Created!",
+        message: "Ty for reviewing, you can edit it at any time with the link on the email we sent you"
+    });
 });
 
 

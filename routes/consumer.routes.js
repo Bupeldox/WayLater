@@ -1,7 +1,7 @@
 var express = require('express'),
     router = express.Router();
 
-const datastore = require('../lib/datastore');
+const dataHandler = require('../lib/dataHandler');
 var apiRoutes = require('./api.routes');
 
 router.use('/api', apiRoutes);
@@ -12,19 +12,20 @@ const viewfp = "pages/consumer/";
 
 // Add a binding to handle '/'
 router.get('/', (req, res) => {
-    
-    var latestReviews = datastore.getLatestReviews();
-    
-    res.render('home', { title: "hello", reviews:latestReviews });
-
+    var latestReviews = dataHandler.getLatestReviews();
+    res.render('home', { reviews:latestReviews });
 })
 
-router.get('/products', (req, res) => {
-    res.render(viewfp+'productlist', { title: "products" });
+router.get('/products/:search', (req, res) => {
+    var search = req.params.search;
+
+    var filteredReviews = dataHandler.getFilteredReviews(search);
+
+    res.render(viewfp + 'reviewlist', { title: "products", reviews:filteredReviews });
 })
 
 router.get('/reviews', (req, res) => {
-    res.render(viewfp+'reviewlist', { title: "reviews" });
+    res.render(viewfp + 'reviewlist', { title: "reviews" });
 })
 
 

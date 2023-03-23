@@ -39,8 +39,8 @@ app.set('views', './views');
 
 app.use("/public",express.static('public'));
 app.use("/review",require("./routes/reviewer.routes"));
+app.use('/test', require("./routes/tests.routes"));
 app.use("/",require("./routes/consumer.routes"));
-
 
 
 app.listen(vars.port,()=>{

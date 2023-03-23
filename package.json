@@ -25,6 +25,6 @@
     "sass": "^1.59.3"
   },
   "nodemonConfig": {
-    "ext": "handlebars,js"
+    "ext": "js"
   }
 }
