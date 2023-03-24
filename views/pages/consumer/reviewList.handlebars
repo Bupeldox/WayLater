@@ -1,0 +1,19 @@
+
+
+{{#> subpageLayout }}
+
+    <div class="mb-5">
+        <h2>Results for: <input type="search" class="btn-juicy" placeholder="Search Reviews" value="{{ search }}"></h2>
+    </div>
+
+    {{#unless reviews }}
+        Soz we got nu'in on that.
+    {{/unless}}
+    <div>
+    {{#each reviews}}
+        
+        {{> reviewitem this}}
+        
+    {{/each}}
+    </div>
+{{/subpageLayout}}

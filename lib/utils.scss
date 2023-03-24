@@ -43,3 +43,5 @@ $sizes:0.25rem,0.5rem,1rem,1.5rem,2rem;
 @include sizingUtil (pr,padding-right);
 
 @include sizingUtil (pb,padding-bottom);
+
+@include sizingUtil (mb,margin-bottom);
