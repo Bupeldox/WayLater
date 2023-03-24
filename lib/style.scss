@@ -3,6 +3,8 @@
 @import "./baseline.scss";
 @import "./utils.scss";
 @import "./Chillax_Complete/Fonts/WEB/css/chillax.css";
+@import "./juicyButton.scss";
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap");
 
 
 * {
@@ -16,7 +18,10 @@ html {
 }
 
 html,body,button,input,textarea{
-	font-family: 'Chillax-Variable', ui-sans-serif, system-ui;
+	font-family: /*'Plus Jakarta Sans',*/ 'Chillax-Variable', ui-sans-serif, system-ui;
+}
+button,input,textarea{
+	font-family: inherit;
 }
 
 .wrapper {
@@ -114,6 +119,16 @@ input, textarea {
 		transform: rotate(360deg);
 	}
 }
+
+svg.logo:hover{
+	animation: orbit 0.5s;
+	transform-origin:center;
+	
+}
+svg.logo{
+	transition:transform 0.2s;
+}
+
 .recentReviews {
 	display: flex;
 	flex-flow: row wrap;
@@ -166,37 +181,6 @@ input, textarea {
 }
 
 
-/*All im showing off is the next 9 css things*/
-.btn-juicy {
-	//box-shadow: 5px 10px#aaa;
-	transition: 0.2s;
-	vertical-align: middle;
-}
-$hoverDarkerAmount:10%;
-.btn-juicy:not(input):hover:active {
-	transition: 0.1s;
-	box-shadow: 1px 2px darken($themePrimary,$hoverDarkerAmount);
-	transform: translate(5px, 10px);
-}
-.btn-juicy:hover {
-	box-shadow: 6px 12px darken($themePrimary,$hoverDarkerAmount);;
-	transform: translate(-1px, -2px);
-}
-/*All im showing off is the next 9 css things*/
-.btn-juicy {
-	text-decoration: none;
-	//box-shadow: 2px 4px #000a;
-}
-.btn-juicy:not(input):hover:active {
-	box-shadow: 1px 2px 0px 0px ($themePrimary,$hoverDarkerAmount);
-	transform: translate(1px, 2px);
-}
-.btn-juicy:hover, .btn-juicy:focus {
-	box-shadow: 3px 6px 1px 0px darken($themePrimary,$hoverDarkerAmount);;
-	transform: translate(-1px, -2px);
-}
-
-
 @media(max-width:760px){
 	$xsPadding: 6vw;
 	.card{
@@ -221,3 +205,8 @@ $hoverDarkerAmount:10%;
 		padding:$xsPadding;
 	}
 }
+
+
+
+
+

@@ -1,0 +1,48 @@
+<div class="search-container">
+    <input type="text" data-url="/search" id="search" class="btn-juicy" placeholder="Search Reviews" style="z-index:1;">
+    <div id="search-button-container" style="display:inline-block;" class="slide-in">
+        <a href="#" id="btn-search" class="button btn-juicy" style="font-size: 0.8em;">Search</a>
+    </div>
+</div>
+
+<style>
+    .search-container{
+        display: flex;
+        flex-direction: row;
+    }
+    #search-button-container{
+        transition:0.5s;
+        margin-left: 0.5em;
+    }
+    .slide-in {
+        transform:translateX(-130%);
+        
+    }
+    .slide-in .btn-juicy{
+        box-shadow: none;
+    }
+</style>
+
+<script>
+    document.getElementById("btn-search").addEventListener("click", function () {
+        doSearch();
+    });
+
+    document.getElementById("search").addEventListener("keyup", function (e) {
+        if ( e.keyCode === 13) { // 13 is enter key
+            doSearch();
+        }
+       updateSearchButton()
+    });
+    function updateSearchButton(){
+         if(document.getElementById("search").value){
+            document.getElementById("search-button-container").classList.remove("slide-in");
+        }else{
+            document.getElementById("search-button-container").classList.add("slide-in");
+        }
+    }
+
+    function doSearch() {
+        window.location.href = document.getElementById("search").dataset.url+"?q=" + document.getElementById("search").value
+    }
+</script>

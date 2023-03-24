@@ -1,0 +1,31 @@
+
+
+/*All im showing off is the next 9 css things*/
+.btn-juicy {
+	//box-shadow: 5px 10px#aaa;
+	transition: 0.2s;
+	vertical-align: middle;
+}
+$hoverDarkerAmount:10%;
+.btn-juicy:not(input):hover:active {
+	transition: 0.1s;
+	box-shadow: 1px 2px darken($themePrimary,$hoverDarkerAmount);
+	transform: translate(5px, 10px);
+}
+.btn-juicy:hover {
+	box-shadow: 6px 12px darken($themePrimary,$hoverDarkerAmount);;
+	transform: translate(-1px, -2px);
+}
+/*All im showing off is the next 9 css things*/
+.btn-juicy {
+	text-decoration: none;
+	//box-shadow: 2px 4px #000a;
+}
+.btn-juicy:not(input):hover:active {
+	box-shadow: 1px 2px 0px 0px ($themePrimary,$hoverDarkerAmount);
+	transform: translate(1px, 2px);
+}
+.btn-juicy:hover, .btn-juicy:focus {
+	box-shadow: 3px 6px 1px 0px darken($themePrimary,$hoverDarkerAmount);;
+	transform: translate(-1px, -2px);
+}

@@ -9,7 +9,7 @@
             <h1>Way Later Reviews</h1>
             <em>Reviews 1 year after purchase</em>
             <a class="button btn-juicy" href="review/setupreview">I Want to Review Something</a>
-            <input type="search" class="btn-juicy" placeholder="Search Reviews">
+            {{> searchInput }}
         </div>
     </section>
 
@@ -20,9 +20,7 @@
             </h2>
             <div>
                 {{#each reviews}}
-
                     {{> reviewitem this}}
-
                 {{/each}}
             </div>
         </section>
@@ -32,8 +30,9 @@
 
 {{#section 'script'}}
 
-    <script src="/public/scripts/zdog.min.js"></script>
-    <script src="/public/scripts/vec2.js"></script>
-    <script src="/public/scripts/orbitGraphic.js"></script>
+<script src="/public/scripts/zdog.min.js"></script>
+<script src="/public/scripts/vec2.js"></script>
+<script src="/public/scripts/orbitGraphic.js"></script>
+
 
 {{/section}}
