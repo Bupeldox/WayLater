@@ -41,7 +41,8 @@ router.get('/testReviewEmail', (req, res) => {
     store("reviews",reviewItem);
 
     sendReviewReadyEmail(reviewItem).then((email)=>{
-        res.send(email);//for testing
+        //res.send(email);//for testing
+        res.se
     });
 });
 

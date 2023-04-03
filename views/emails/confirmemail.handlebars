@@ -15,11 +15,13 @@
 </p>
 <p>
     <a href="{{ urls.confirm }}">Confirm Review</a>
+    <span style="display:none;">{{ urls.confirm }}</a>
 </p>
 
 <p>you requested to do a review, on {{ dateCreated }} which means you will be able to write your review on {{ reviewDate }}. If you confirm this </p>
 <p>
-    <a href="{{ urls.confirm }}">Cancel Review</a>
+    <a href="{{ urls.cancel }}">Cancel Review</a>
+    <span style="display:none;">{{{urls.cancel}}}</a>
 </p>
 
 

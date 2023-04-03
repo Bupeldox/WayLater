@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <section class="hero" style="height:30vh">
+    <div class="hero" style="height:30vh">
 
         <div class="bgImage svg container">
             <svg class="zdog-svg"></svg>
@@ -8,27 +8,25 @@
         <div class="bgImage heroContent container">
             <h1>Setup Review</h1>
         </div>
-    </section>
+    </div>
     <div class="container">
-        <section>
-            <form action="./setupreview" method="post">
-                <div class="pb-3">
-                    <label for="manufacture">Brand</label>
-                    <input name="manufacture" required class="btn-juicy" type="text">
-                </div>
-                <div class="pb-3">
-                    <label for="product">Product</label>
-                    <input required class="btn-juicy" type="text" name="product">
-                </div>
-                <div class="pb-3">
-                    <label for="email">Email</label>
-                    <input class="btn-juicy" type="email" name="email">
-                </div>
-                <button type="submit" class="button btn-juicy">Send Email Confirmation</button>
-                <br><br>
-                <small>We don't do accounts so confirming ur email is basically logging in.</small>
-            </form>
-        </section>
+        <form action="./setupreview" method="post">
+            <div class="pb-3">
+                <label for="manufacture">Brand</label>
+                <input name="manufacture" required class="btn-juicy" type="text">
+            </div>
+            <div class="pb-3">
+                <label for="product">Product</label>
+                <input required class="btn-juicy" type="text" name="product">
+            </div>
+            <div class="pb-3">
+                <label for="email">Email</label>
+                <input class="btn-juicy" type="email" name="email">
+            </div>
+            <button type="submit" class="button btn-juicy">Send Email Confirmation</button>
+            <br><br>
+            <small>We don't do accounts so confirming ur email is basically logging in.</small>
+        </form>
     </div>
 </div>
 

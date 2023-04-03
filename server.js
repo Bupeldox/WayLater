@@ -2,25 +2,24 @@ const express = require('express');
 const { create } = require( 'express-handlebars');
 const { helpers } = require('./lib/helpers');
 var bodyParser = require('body-parser')
+const { vars } = require('./lib/environmentVars');
+
+const app = express();
 
 
-
-
+/*
 var livereload = require("livereload");
 var connectLiveReload = require("connect-livereload");
-const { vars } = require('./lib/environmentVars');
 const liveReloadServer = livereload.createServer({port:13853});
 liveReloadServer.server.once("connection", () => {
   setTimeout(() => {
     liveReloadServer.refresh("/");
   }, 100);
 });
-
-
-
-
-const app = express();
 app.use(connectLiveReload());
+*/
+
+
 app.use(bodyParser.json() );        // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true

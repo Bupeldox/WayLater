@@ -12,6 +12,14 @@ const dataHandler = require('../lib/dataHandler');
 
 const viewfp = "pages/reviewer/";
 
+function showError(res){
+    res.render(viewfp+'somethingconfirmed', { 
+        title: "Something went wrong",
+        message: "Soz, might want to try again, or just give up I guess."
+    });
+}
+
+
 // Add a binding to handle '/'
 router.get('/setupreview', (req, res) => {
     res.render(viewfp+'setupreview', { 
@@ -25,14 +33,12 @@ router.post('/setupreview', (req, res) => {
     //redirect to wesentyouanemail
     var fd = req.body;
     
-    var reviewItem = dataHandler.createReviewRequest(fd.email,fd.brand,fd.productName);
+    var reviewItem = dataHandler.createReviewRequest(fd.email,fd.manufacture,fd.product);
 
-    sendConfirmationEmail(res,reviewItem).then((email)=>{
-
-        res.send(email);
-    });
+    sendConfirmationEmail(reviewItem).then((email)=>{
+        res.redirect("./wesentyouanemail");
+    }).catch((error)=>{ console.log(error); showError(res); });
     
-    //kjkres.redirect("./wesentyouanemail");
 });
 
 router.get('/wesentyouanemail', (req, res) => {
@@ -43,16 +49,14 @@ router.get('/wesentyouanemail', (req, res) => {
 });
 
 router.get('/confirm', (req, res) => {
-    res.render(viewfp+'somethingconfirmed', 
-    { 
+    res.render(viewfp+'somethingconfirmed', { 
         title: "Email confirmed",
         message: "See you in a year! You can cancel the reminder at any time with the link on the email we sent."
     });
 });
 
 router.get('/cancel', (req, res) => {
-    res.render(viewfp+'somethingconfirmed', 
-    { 
+    res.render(viewfp+'somethingconfirmed', { 
         title: "Review canceled",
         message: "Who are you? we have got rid of all the details regarding this review and we don't store user data anyway!"
     });

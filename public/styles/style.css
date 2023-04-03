@@ -1,8 +1,17 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 @import "./Chillax_Complete/Fonts/WEB/css/chillax.css";
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap");
+
 figure {
-  margin-inline-start: 0;
-  margin-inline-end: 0;
+  -webkit-margin-start: 0;
+          margin-inline-start: 0;
+  -webkit-margin-end: 0;
+          margin-inline-end: 0;
   margin-top: 0;
 }
 
@@ -41,7 +50,9 @@ li:before {
 }
 
 .flex-stack > * {
-  flex: 0 0 auto !important;
+  -webkit-box-flex: 0 !important;
+      -ms-flex: 0 0 auto !important;
+          flex: 0 0 auto !important;
 }
 
 textarea {
@@ -57,13 +68,24 @@ a {
 }
 
 .d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .d-flex > * {
-  flex: 1 1 auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
 }
 
 .absolute {
@@ -175,21 +197,51 @@ a {
   margin-bottom: 2rem;
 }
 
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+.mt-5 {
+  margin-top: 2rem;
+}
+
 /*All im showing off is the next 9 css things*/
 .btn-juicy {
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
   transition: 0.2s;
   vertical-align: middle;
 }
 
 .btn-juicy:not(input):hover:active {
+  -webkit-transition: 0.1s;
+  -o-transition: 0.1s;
   transition: 0.1s;
-  box-shadow: 1px 2px #2b2b2b;
-  transform: translate(5px, 10px);
+  -webkit-box-shadow: 1px 2px #2b2b2b;
+          box-shadow: 1px 2px #2b2b2b;
+  -webkit-transform: translate(5px, 10px);
+      -ms-transform: translate(5px, 10px);
+          transform: translate(5px, 10px);
 }
 
 .btn-juicy:hover {
-  box-shadow: 6px 12px #2b2b2b;
-  transform: translate(-1px, -2px);
+  -webkit-box-shadow: 6px 12px #2b2b2b;
+          box-shadow: 6px 12px #2b2b2b;
+  -webkit-transform: translate(-1px, -2px);
+      -ms-transform: translate(-1px, -2px);
+          transform: translate(-1px, -2px);
 }
 
 /*All im showing off is the next 9 css things*/
@@ -198,17 +250,24 @@ a {
 }
 
 .btn-juicy:not(input):hover:active {
-  box-shadow: 1px 2px 0px 0px #444, 10%;
-  transform: translate(1px, 2px);
+  -webkit-box-shadow: 1px 2px 0px 0px #444, 10%;
+          box-shadow: 1px 2px 0px 0px #444, 10%;
+  -webkit-transform: translate(1px, 2px);
+      -ms-transform: translate(1px, 2px);
+          transform: translate(1px, 2px);
 }
 
 .btn-juicy:hover, .btn-juicy:focus {
-  box-shadow: 3px 6px 1px 0px #2b2b2b;
-  transform: translate(-1px, -2px);
+  -webkit-box-shadow: 3px 6px 1px 0px #2b2b2b;
+          box-shadow: 3px 6px 1px 0px #2b2b2b;
+  -webkit-transform: translate(-1px, -2px);
+      -ms-transform: translate(-1px, -2px);
+          transform: translate(-1px, -2px);
 }
 
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   --test:1;
 }
 
@@ -227,14 +286,25 @@ button, input, textarea {
 }
 
 .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: -webkit-min-content;
+  min-width: -moz-min-content;
   min-width: min-content;
 }
 
 .container {
-  flex: 0 1 760px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 760px;
+          flex: 0 1 760px;
   padding: 3rem;
   max-width: 760px;
   width: 100%;
@@ -257,7 +327,8 @@ input, textarea {
   background-color: #fff;
   padding: calc(1em - 2px);
   border-radius: 1em;
-  box-shadow: 0 0.25em 2em -0.25em #919191;
+  -webkit-box-shadow: 0 0.25em 2em -0.25em #919191;
+          box-shadow: 0 0.25em 2em -0.25em #919191;
   border: 2px solid #ddd;
 }
 
@@ -295,52 +366,93 @@ input, textarea {
 }
 .bgImage.fog {
   opacity: 0.1;
+  background: -o-radial-gradient(bottom, circle, transparent, #3d0f8a 90%);
   background: radial-gradient(circle at bottom, transparent, #3d0f8a 90%);
 }
 .bgImage.heroContent {
   height: 80%;
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   z-index: 1;
   gap: 1em;
 }
 
-@keyframes orbit {
+@-webkit-keyframes orbit {
   from {
-    transform: rotate(0);
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
   }
   to {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 svg.logo:hover {
-  animation: orbit 0.5s;
-  transform-origin: center;
+  -webkit-animation: orbit 0.5s;
+          animation: orbit 0.5s;
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center;
 }
 
 svg.logo {
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  -o-transition: transform 0.2s;
   transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
 }
 
 .recentReviews {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   gap: 2rem;
 }
 
 .card {
-  box-shadow: 0px 0px 5px 1px #444;
+  -webkit-box-shadow: 0px 0px 5px 1px #444;
+          box-shadow: 0px 0px 5px 1px #444;
   padding: 1.5rem;
   padding-bottom: 0rem !important;
   border-radius: 1rem;
 }
 .card h3 {
-  text-decoration-color: #444;
+  -webkit-text-decoration-color: #444;
+          text-decoration-color: #444;
   text-decoration: underline;
 }
 
@@ -371,7 +483,13 @@ svg.logo {
   right: 0;
   bottom: 0;
   height: 4rem;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(white));
+  background: -o-linear-gradient(rgba(255, 255, 255, 0), white);
   background: linear-gradient(rgba(255, 255, 255, 0), white);
+}
+
+footer.container {
+  height: 30vh;
 }
 
 @media (max-width: 760px) {
@@ -380,7 +498,8 @@ svg.logo {
     padding: 6vw;
   }
   .satalite {
-    animation: none !important;
+    -webkit-animation: none !important;
+            animation: none !important;
   }
   body {
     font-size: 16px;
@@ -391,11 +510,11 @@ svg.logo {
     padding-right: 6vw;
   }
   .miniReview {
-    flex-grow: 1;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
   }
   .hero .heroContent {
     padding: 6vw;
   }
 }
-
-/*# sourceMappingURL=style.css.map */
