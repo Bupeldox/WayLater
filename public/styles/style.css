@@ -1,5 +1,6 @@
 @import "./Chillax_Complete/Fonts/WEB/css/chillax.css";
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=hind@400&display=swap");
 figure {
   margin-inline-start: 0;
   margin-inline-end: 0;
@@ -229,7 +230,7 @@ a {
 
 * {
   box-sizing: border-box;
-  --test:1;
+  line-height: 1.5em;
 }
 
 body,
@@ -239,11 +240,16 @@ html {
 }
 
 html, body, button, input, textarea {
+  font-family: "hind", ui-sans-serif, system-ui;
+}
+
+h1, h2, h3, h4, h5 {
   font-family: "Chillax-Variable", ui-sans-serif, system-ui;
 }
 
 button, input, textarea {
   font-family: inherit;
+  font-size: inherit;
 }
 
 .wrapper {
@@ -277,8 +283,8 @@ input, textarea {
   background-color: #fff;
   padding: calc(1em - 2px);
   border-radius: 1em;
-  box-shadow: 0 0.25em 2em -0.25em #8d59e2;
   border: 2px solid #ddd;
+  box-shadow: 0px 2px 8px -4px #8d59e2;
 }
 
 .hero {
@@ -292,7 +298,10 @@ input, textarea {
   overflow: hidden;
 }
 .hero .buttons > * {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
+}
+.hero input, .hero button, .hero a {
+  box-shadow: 0 0.25em 2em -0.25em #8d59e2;
 }
 
 .bgImage {
@@ -336,7 +345,7 @@ input, textarea {
     transform: rotate(360deg);
   }
 }
-svg.logo:hover {
+svg.logo:hover > g {
   animation: orbit 0.5s;
   transform-origin: center;
 }

@@ -9,29 +9,34 @@
             <h1>Setup Review</h1>
         </div>
     </div>
-    <div class="container">
-        <p>
-            We could do with a few details about your product. We will use this to remind you what you wanted to review a year ago.<br>
+    <div class="container" style="padding-top:1em;">
+        <p class="mb-5">
+            We could do with a few details about your product. We will use this to remind you about what this review is
+            for in a year.<br>
             You will be able to change the brand and product name when writing your review.
         </p>
         <form action="./setupreview" method="post">
             <div class="pb-3">
                 <label for="manufacture">Brand</label>
-                <input name="manufacture" required class="btn-juicy" type="text">
+                <input autocomplete="off" name="manufacture" required class="btn-juicy" type="text">
             </div>
             <div class="pb-3">
                 <label for="product">Product</label>
-                <input required class="btn-juicy" type="text" name="product">
+                <input autocomplete="off" required class="btn-juicy" type="text" name="product">
             </div>
             <div class="pb-3">
                 <label for="email">Email</label>
                 <input class="btn-juicy" type="email" name="email">
+                <small>We'll send you 2 emails, one to confirm it's yours and another to let you create your
+                    review.</small>
             </div>
-            <button type="submit" class="button btn-juicy">
-                <img src="./public/emailicon.svg" alt=""/>
-                 Send Email Confirmation</button>
-            <br><br>
-            <small>We don't do accounts so confirming ur email is basically logging in.</small>
+            <button type="submit" class="button btn-juicy mt-3">
+                <img src="./public/emailicon.svg" alt="" />
+                Send Email Confirmation
+            </button>
+            <div class="mt-3">
+                <small>We don't do accounts so confirming your email is basically logging in.</small>
+            </div>
         </form>
     </div>
 </div>
@@ -39,8 +44,9 @@
 
 {{#section 'script'}}
 
-    {{!-- <script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script>
-    <script src="/public/scripts/vec2.js"></script>
-    <script src="/public/scripts/orbitGraphic.js"></script> --}}
+{{!--
+<script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script>
+<script src="/public/scripts/vec2.js"></script>
+<script src="/public/scripts/orbitGraphic.js"></script> --}}
 
 {{/section}}

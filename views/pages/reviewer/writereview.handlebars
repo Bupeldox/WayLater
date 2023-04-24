@@ -14,15 +14,15 @@
             <form action="../write" method="post">
                 <input type="hidden" name="id" value="{{ id }}">
                 <div class="pb-3">
-                    <label for="manufacture">Brand</label>
+                    <label autocomplete="off" for="manufacture">Brand</label>
                     <input name="manufacture" required class="btn-juicy" type="text" value="{{ brand }}">
                 </div>
                 <div class="pb-3">
                     <label for="product">Product</label>
-                    <input required class="btn-juicy" type="text" name="product" value="{{ productName }}">
+                    <input autocomplete="off" required class="btn-juicy" type="text" name="product" value="{{ productName }}">
                 </div>
                 <div class="pb-3">
-                    <textarea class="btn-juicy" placeholder="Lets write ur review" name="reviewContent" id="" cols="30" rows="10">{{ reviewContent }}</textarea>
+                    <textarea autocomplete="off" class="btn-juicy" placeholder="Lets write ur review" name="reviewContent" id="" cols="30" rows="10">{{ reviewContent }}</textarea>
                 </div>
                 <button type="submit" class="button btn-juicy">Save Review</button>
                 <br><br>
