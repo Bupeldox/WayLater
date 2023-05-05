@@ -9,12 +9,6 @@
         </div>
     </div>
 
-    {{#unless reviews }}
-        Soz we got nu'in on that.
-    {{/unless}}
-    <div>
-    {{#each reviews}}
-        {{> reviewitem this}}
-    {{/each}}
-    </div>
+    {{> listOfReviews}}
+
 {{/subpageLayout}}

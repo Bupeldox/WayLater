@@ -13,7 +13,10 @@ const viewfp = "pages/consumer/";
 // Add a binding to handle '/'
 router.get('/', (req, res) => {
     var latestReviews = dataHandler.getLatestReviews();
-    res.render('pages/home', { reviews:latestReviews });
+    res.render('pages/home', { 
+        description:"Reviews written 1 year after purchase",
+        reviews:latestReviews 
+    });
 })
 
 router.get('/search', (req, res) => {

@@ -1,0 +1,13 @@
+ {{#unless reviews }}
+    Soz we got nu'in on that.
+{{/unless}}
+{{#if reviews }}
+    <ul class="unstyled">
+    {{#each reviews}}
+        <li>
+            {{> reviewitem this}}
+        </li>
+    {{/each}}
+    </ul>
+{{/if}}
+    
