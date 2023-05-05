@@ -3,12 +3,20 @@ const { sendReviewReadyEmail, sendConfirmationEmail } = require('../lib/confirma
 const { store } = require('../lib/datastore');
 
 
+
 var express = require('express'),
     router = express.Router();
 
 
 router.get("/",(req,res)=>{
-    res.send("hello");
+
+    var hs = "<ul>";
+    router.stack.map(i=>{
+        hs+="<li><a href='."+i.route.path+"'>"+i.route.path+"</a></li>";
+
+    })
+    hs += "</ul>";
+    res.send(hs);
 })
 
 router.get('/testConfirmEmail', (req, res) => {
@@ -24,7 +32,7 @@ router.get('/testConfirmEmail', (req, res) => {
     store("reviews",reviewItem);
 
     sendConfirmationEmail(reviewItem).then((email)=>{
-        res.send(email);//for testing
+        res.send("<a href='./'>Back</a>");//for testing
     });
 });
 
@@ -42,7 +50,7 @@ router.get('/testReviewEmail', (req, res) => {
 
     sendReviewReadyEmail(reviewItem).then((email)=>{
         //res.send(email);//for testing
-        res.se
+        res.send("<a href='./'>Back</a>");
     });
 });
 

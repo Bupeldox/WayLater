@@ -23,7 +23,7 @@ function showError(res){
 // Add a binding to handle '/'
 router.get('/setupreview', (req, res) => {
     res.render(viewfp+'setupreview', { 
-        title: "setup review" 
+        title: "Setup Review" 
     });
 });
 
