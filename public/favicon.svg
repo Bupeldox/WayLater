@@ -1,0 +1,19 @@
+<svg class="orbital logo" width="48" height="48" version="1.1" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg">
+    <g>
+        <circle cx=".5" cy=".5" r=".15" style="fill:#3a198a" />
+        <g class="satellite" style="transform:rotate(40deg);transform-origin:center;">
+            <animateTransform
+                attributeName="transform"
+                attributeType="XML"
+                type="rotate"
+                from="40 0 0"
+                to="400 0 0"
+                dur="10s"
+                repeatCount="indefinite" />
+            <circle cx=".5" cy=".5" r=".45"
+                style="fill-opacity:0;stroke-dasharray:2, 0.23;stroke-linecap:round;stroke-width:.03;stroke:#3a198a" />
+            <circle cx=".5" cy=".05" r=".05" style="fill:#3a198a" />
+            <circle cx=".5" cy=".95" r=".05" style="opacity:0" />
+        </g>
+    </g>
+</svg>
